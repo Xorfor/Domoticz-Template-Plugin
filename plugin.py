@@ -20,7 +20,7 @@
 """
 import Domoticz
 
-    __HEARTBEATS = 6 * 5               # 5 minutes
+_HEARTBEATS = 6 * 5               # 5 minutes
 
 class BasePlugin:
 
@@ -57,7 +57,7 @@ class BasePlugin:
         Domoticz.Debug("onHeartbeat called")
         self.__runAgain -= 1
         if self.__runAgain <= 0:
-            self.__runAgain = self.__HEARTBEATS
+            self.__runAgain = _HEARTBEATS
             # Execute your command
         else:
             Domoticz.Debug("onHeartbeat called, run again in "+str(self.__runAgain)+" heartbeats.")
