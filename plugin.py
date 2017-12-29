@@ -112,7 +112,8 @@ def DumpConfigToLog():
         Domoticz.Debug("Device nValue:    " + str(Devices[x].nValue))
         Domoticz.Debug("Device sValue:   '" + Devices[x].sValue + "'")
         Domoticz.Debug("Device LastLevel: " + str(Devices[x].LastLevel))
-    return
+    for x in Settings:
+        Domoticz.Debug("Setting:          " + str(x) + " - " + str(Settings[x]))
     
 def UpdateDevice(Unit, nValue, sValue, TimedOut=0, AlwaysUpdate=False):
     # Make sure that the Domoticz device still exists (they can be deleted) before updating it
@@ -120,4 +121,3 @@ def UpdateDevice(Unit, nValue, sValue, TimedOut=0, AlwaysUpdate=False):
         if Devices[Unit].nValue != nValue or Devices[Unit].sValue != sValue or Devices[Unit].TimedOut != TimedOut or AlwaysUpdate:
             Devices[Unit].Update(nValue=nValue, sValue=str(sValue), TimedOut=TimedOut)
             Domoticz.Debug("Update " + Devices[Unit].Name + ": " + str(nValue) + " - '" + str(sValue) + "'")
-    return
