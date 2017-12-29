@@ -32,8 +32,13 @@ class BasePlugin:
         Domoticz.Debug("onStart called")
         if Parameters["Mode6"] == "Debug":
             Domoticz.Debugging(1)
+        else:
+            Domoticz.Debugging(0)
+        # Validate parameters
         # Create devices
+        # Log config
         DumpConfigToLog()
+        # Connection
 
     def onStop(self):
         Domoticz.Debug("onStop called")
